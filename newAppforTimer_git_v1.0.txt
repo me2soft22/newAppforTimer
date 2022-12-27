@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,7 +36,7 @@ namespace newAppforTimer
                     break;
                 case 0:
                     return;
-                case 6://STOP
+                case 1://STOP
                     if (_timers.ContainsKey(e.RowIndex))
                     {
                         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
@@ -54,24 +54,22 @@ namespace newAppforTimer
         {
             txtPhone.Text = "";
             txtName.Text = "";
-            txtCustCount.Text = "";
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtPhone.Text = "";
             txtName.Text = "";
-            txtCustCount.Text = "";
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
             int rCount = dataGridView1.Rows.Count;
             //MessageBox.Show("before add row: " + rCount.ToString());
-            dataGridView1.Rows.Add(rCount, txtPhone.Text, txtName.Text, txtCustCount.Text, DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongTimeString());
+            dataGridView1.Rows.Add(rCount, txtPhone.Text, txtName.Text, DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongTimeString());
 
             System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-            timer.Tick += (ss, ee) => { dataGridView1[5, rCount].Value = DateTime.Now.ToLongTimeString(); };
+            timer.Tick += (ss, ee) => { dataGridView1[4, rCount].Value = DateTime.Now.ToLongTimeString(); };
             timer.Interval = 1000;
             timer.Start();
             //MessageBox.Show("before add timer: " + cid.ToString());
@@ -79,22 +77,6 @@ namespace newAppforTimer
 
             txtPhone.Text = "";
             txtName.Text = "";
-            txtCustCount.Text = "";
         }
-
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            foreach(DataGridViewRow row in dataGridView1.Rows)
-            {
-                int diffSec = Convert.ToInt32((Convert.ToDateTime(row.Cells["gColTimer"].Value) - Convert.ToDateTime(row.Cells["gColSTime"].Value)).TotalSeconds);
-                int diffMin = Convert.ToInt32((Convert.ToDateTime(row.Cells["gColTimer"].Value) - Convert.ToDateTime(row.Cells["gColSTime"].Value)).TotalMinutes);
-                row.Cells["gColTotalTime"].Value = diffSec.ToString();
-                if(Convert.ToInt32(row.Cells["gColTotalTime"].Value) > 50)
-                {
-                    row.Cells["gColTotalTime"].Style.ForeColor = Color.White;
-                    row.Cells["gColTotalTime"].Style.BackColor = Color.Red;
-                }
-            }
-        }   
     }
 }

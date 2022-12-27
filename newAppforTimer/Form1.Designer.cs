@@ -36,13 +36,16 @@ namespace newAppforTimer
             this.label2 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.txtCustCount = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.colIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gColCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gColSTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gColTimer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gColStopTimer = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gColTotalTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gColStopTimer = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,15 +56,17 @@ namespace newAppforTimer
             this.colIndex,
             this.gColPhone,
             this.gColName,
+            this.gColCount,
             this.gColSTime,
             this.gColTimer,
-            this.gColStopTimer,
-            this.gColTotalTime});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 203);
+            this.gColTotalTime,
+            this.gColStopTimer});
+            this.dataGridView1.Location = new System.Drawing.Point(142, 211);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(744, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(576, 200);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // txtPhone
             // 
@@ -72,7 +77,7 @@ namespace newAppforTimer
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(356, 70);
+            this.txtName.Location = new System.Drawing.Point(356, 66);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(142, 20);
             this.txtName.TabIndex = 3;
@@ -97,7 +102,7 @@ namespace newAppforTimer
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(288, 127);
+            this.btnStart.Location = new System.Drawing.Point(284, 156);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(87, 25);
             this.btnStart.TabIndex = 6;
@@ -107,7 +112,7 @@ namespace newAppforTimer
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(389, 127);
+            this.btnClear.Location = new System.Drawing.Point(392, 157);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(87, 25);
             this.btnClear.TabIndex = 7;
@@ -115,46 +120,87 @@ namespace newAppforTimer
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // txtCustCount
+            // 
+            this.txtCustCount.Location = new System.Drawing.Point(356, 107);
+            this.txtCustCount.Name = "txtCustCount";
+            this.txtCustCount.Size = new System.Drawing.Size(142, 20);
+            this.txtCustCount.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(299, 114);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "# of Kids";
+            // 
             // colIndex
             // 
+            this.colIndex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colIndex.HeaderText = "ID";
             this.colIndex.Name = "colIndex";
+            this.colIndex.Width = 30;
             // 
             // gColPhone
             // 
+            this.gColPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.gColPhone.HeaderText = "Phone#";
             this.gColPhone.Name = "gColPhone";
+            this.gColPhone.Width = 70;
             // 
             // gColName
             // 
+            this.gColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.gColName.HeaderText = "Name";
             this.gColName.Name = "gColName";
+            this.gColName.Width = 60;
+            // 
+            // gColCount
+            // 
+            this.gColCount.HeaderText = "Count";
+            this.gColCount.Name = "gColCount";
+            this.gColCount.Width = 45;
             // 
             // gColSTime
             // 
+            this.gColSTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.gColSTime.HeaderText = "StartTime";
             this.gColSTime.Name = "gColSTime";
+            this.gColSTime.Width = 77;
             // 
             // gColTimer
             // 
+            this.gColTimer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.gColTimer.HeaderText = "Timer";
             this.gColTimer.Name = "gColTimer";
+            this.gColTimer.ReadOnly = true;
+            this.gColTimer.Width = 58;
+            // 
+            // gColTotalTime
+            // 
+            this.gColTotalTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.gColTotalTime.HeaderText = "TotalTime";
+            this.gColTotalTime.Name = "gColTotalTime";
+            this.gColTotalTime.Width = 79;
             // 
             // gColStopTimer
             // 
             this.gColStopTimer.HeaderText = "Stop";
             this.gColStopTimer.Name = "gColStopTimer";
-            // 
-            // gColTotalTime
-            // 
-            this.gColTotalTime.HeaderText = "TotalTime";
-            this.gColTotalTime.Name = "gColTotalTime";
+            this.gColStopTimer.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.gColStopTimer.Text = "Stop";
+            this.gColStopTimer.UseColumnTextForButtonValue = true;
+            this.gColStopTimer.Width = 40;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtCustCount);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.label2);
@@ -180,13 +226,16 @@ namespace newAppforTimer
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.TextBox txtCustCount;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIndex;
         private System.Windows.Forms.DataGridViewTextBoxColumn gColPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn gColName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gColCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn gColSTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn gColTimer;
-        private System.Windows.Forms.DataGridViewButtonColumn gColStopTimer;
         private System.Windows.Forms.DataGridViewTextBoxColumn gColTotalTime;
+        private System.Windows.Forms.DataGridViewButtonColumn gColStopTimer;
     }
 }
 
