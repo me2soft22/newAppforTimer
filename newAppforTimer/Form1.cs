@@ -66,7 +66,7 @@ namespace newAppforTimer
                         timer.Stop();
                         _timers.Remove(e.RowIndex);
                         updateLKONHistoryTable(dataGridView1[1, e.RowIndex].Value.ToString(), Convert.ToDateTime(dataGridView1[4, e.RowIndex].Value), Convert.ToDateTime(dataGridView1[5, e.RowIndex].Value));
-                        updatePaymentInfo(dataGridView1[1, e.RowIndex].Value.ToString());
+                        updatePaymentInfo(dataGridView1[1, e.RowIndex].Value.ToString(), dataGridView1[3, e.RowIndex].Value.ToString());
                     }
                     break;
                 default:
@@ -268,7 +268,7 @@ namespace newAppforTimer
             con.Close();
         }
 
-        private void updatePaymentInfo(string custPhone) {
+        private void updatePaymentInfo(string custPhone, string custCount) {
             con.Open();
             bool isUpdated = false;
             Double totalValue = 0.0;
@@ -289,6 +289,7 @@ namespace newAppforTimer
                 }
             }
             rdr.Close();
+            totalValue = totalValue * Convert.ToInt32(custCount);
             cmd = new SqlCommand("UPDATE History SET TotalAmount='" + totalValue + "' where PhoneNumber='" + custPhone + "' and InDate='" + DateTime.Now.ToShortDateString() + "' ", con);
             cmd.ExecuteNonQuery();
             con.Close();
