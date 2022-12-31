@@ -39,7 +39,7 @@ namespace newAppforTimer
             dataGridView1.AllowUserToAddRows = false;
             con = new SqlConnection(connectionString);
             //truncatedatabase();
-            calcTotalCost(2, 10, 5);
+            //calcTotalCost(2, 10, 5);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
