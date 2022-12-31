@@ -6,7 +6,7 @@
     [StartTime]    NVARCHAR (50) NULL,
     [EndTime]      NVARCHAR (50) NULL,
     [HoursPlayed]  NVARCHAR (20) NULL,
-    [TotalAmount] MONEY NOT NULL, 
+    [TotalAmount] SMALLMONEY NULL, 
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 

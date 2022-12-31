@@ -38,7 +38,7 @@ namespace newAppforTimer
             InitializeComponent();
             dataGridView1.AllowUserToAddRows = false;
             con = new SqlConnection(connectionString);
-            //truncatedatabase();
+            truncatedatabase();
             //calcTotalCost(2, 10, 5);
         }
 
@@ -280,7 +280,7 @@ namespace newAppforTimer
             {
                 while (rdr.Read())
                 {
-                    string tempHours = rdr.GetInt32(3).ToString();
+                    string tempHours = rdr.GetString(6).ToString();
                     string[] Separate = tempHours.Split(':');
                     int hour = Convert.ToInt32(Separate[0]);
                     int mins = Convert.ToInt32(Separate[1]);
