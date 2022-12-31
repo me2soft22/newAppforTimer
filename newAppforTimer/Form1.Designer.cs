@@ -30,14 +30,6 @@ namespace newAppforTimer
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.txtCustCount = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.colIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +38,14 @@ namespace newAppforTimer
             this.gColTimer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gColTotalTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gColStopTimer = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.txtCustCount = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,80 +61,12 @@ namespace newAppforTimer
             this.gColTimer,
             this.gColTotalTime,
             this.gColStopTimer});
-            this.dataGridView1.Location = new System.Drawing.Point(142, 211);
+            this.dataGridView1.Location = new System.Drawing.Point(122, 211);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(576, 200);
+            this.dataGridView1.Size = new System.Drawing.Size(545, 200);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Location = new System.Drawing.Point(356, 23);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(142, 20);
-            this.txtPhone.TabIndex = 1;
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(356, 66);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(142, 20);
-            this.txtName.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(263, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Customer Phone";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(266, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Customer Name";
-            // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(284, 156);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(87, 25);
-            this.btnStart.TabIndex = 6;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(392, 157);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(87, 25);
-            this.btnClear.TabIndex = 7;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // txtCustCount
-            // 
-            this.txtCustCount.Location = new System.Drawing.Point(356, 107);
-            this.txtCustCount.Name = "txtCustCount";
-            this.txtCustCount.Size = new System.Drawing.Size(142, 20);
-            this.txtCustCount.TabIndex = 8;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(299, 114);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "# of Kids";
             // 
             // colIndex
             // 
@@ -147,7 +79,10 @@ namespace newAppforTimer
             // 
             this.gColPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.gColPhone.HeaderText = "Phone#";
+            this.gColPhone.MaxInputLength = 10;
             this.gColPhone.Name = "gColPhone";
+            this.gColPhone.ReadOnly = true;
+            this.gColPhone.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.gColPhone.Width = 70;
             // 
             // gColName
@@ -193,6 +128,76 @@ namespace newAppforTimer
             this.gColStopTimer.Text = "Stop";
             this.gColStopTimer.UseColumnTextForButtonValue = true;
             this.gColStopTimer.Width = 40;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(356, 23);
+            this.txtPhone.MaxLength = 10;
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(142, 20);
+            this.txtPhone.TabIndex = 1;
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(356, 66);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(142, 20);
+            this.txtName.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(263, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Customer Phone";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(266, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Customer Name";
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(284, 156);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(87, 25);
+            this.btnStart.TabIndex = 4;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(392, 157);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(87, 25);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // txtCustCount
+            // 
+            this.txtCustCount.Location = new System.Drawing.Point(356, 107);
+            this.txtCustCount.Name = "txtCustCount";
+            this.txtCustCount.Size = new System.Drawing.Size(142, 20);
+            this.txtCustCount.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(299, 114);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "# of Kids";
             // 
             // Form1
             // 
