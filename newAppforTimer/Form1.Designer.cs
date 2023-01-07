@@ -46,7 +46,10 @@ namespace newAppforTimer
             this.btnClear = new System.Windows.Forms.Button();
             this.txtCustCount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.btnFormItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -63,7 +66,7 @@ namespace newAppforTimer
             this.gColStopTimer});
             this.dataGridView1.Location = new System.Drawing.Point(122, 211);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(545, 200);
+            this.dataGridView1.Size = new System.Drawing.Size(545, 227);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
@@ -136,6 +139,7 @@ namespace newAppforTimer
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(142, 20);
             this.txtPhone.TabIndex = 1;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // txtName
@@ -199,11 +203,27 @@ namespace newAppforTimer
             this.label3.TabIndex = 9;
             this.label3.Text = "# of Kids";
             // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
+            // btnFormItem
+            // 
+            this.btnFormItem.Location = new System.Drawing.Point(668, 105);
+            this.btnFormItem.Name = "btnFormItem";
+            this.btnFormItem.Size = new System.Drawing.Size(75, 23);
+            this.btnFormItem.TabIndex = 10;
+            this.btnFormItem.Text = "Items";
+            this.btnFormItem.UseVisualStyleBackColor = true;
+            this.btnFormItem.Click += new System.EventHandler(this.btnFormItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnFormItem);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCustCount);
             this.Controls.Add(this.btnClear);
@@ -217,6 +237,7 @@ namespace newAppforTimer
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,6 +262,8 @@ namespace newAppforTimer
         private System.Windows.Forms.DataGridViewTextBoxColumn gColTimer;
         private System.Windows.Forms.DataGridViewTextBoxColumn gColTotalTime;
         private System.Windows.Forms.DataGridViewButtonColumn gColStopTimer;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.Button btnFormItem;
     }
 }
 

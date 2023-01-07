@@ -38,7 +38,7 @@ namespace newAppforTimer
             InitializeComponent();
             dataGridView1.AllowUserToAddRows = false;
             con = new SqlConnection(connectionString);
-            truncatedatabase();
+            //truncatedatabase();
             //calcTotalCost(2, 10, 5);
         }
 
@@ -289,12 +289,24 @@ namespace newAppforTimer
                 }
             }
             rdr.Close();
-            totalValue = totalValue * Convert.ToInt32(custCount);
+            totalValue = Math.Round(totalValue * Convert.ToInt32(custCount),2);
             cmd = new SqlCommand("UPDATE History SET TotalAmount='" + totalValue + "' where PhoneNumber='" + custPhone + "' and InDate='" + DateTime.Now.ToShortDateString() + "' ", con);
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Records Updated Successfully");
             isUpdated = true;
+        }
+
+        private void btnFormItem_Click(object sender, EventArgs e)
+        {
+            Items iForm = new Items();
+            iForm.Show();
+            this.Hide();
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private Double calcTotalCost(int hr, int min, int ss)
