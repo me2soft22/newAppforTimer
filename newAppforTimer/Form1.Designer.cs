@@ -48,6 +48,7 @@ namespace newAppforTimer
             this.label3 = new System.Windows.Forms.Label();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.btnFormItem = new System.Windows.Forms.Button();
+            this.btnBiller = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -210,7 +211,7 @@ namespace newAppforTimer
             // 
             // btnFormItem
             // 
-            this.btnFormItem.Location = new System.Drawing.Point(668, 105);
+            this.btnFormItem.Location = new System.Drawing.Point(667, 66);
             this.btnFormItem.Name = "btnFormItem";
             this.btnFormItem.Size = new System.Drawing.Size(75, 23);
             this.btnFormItem.TabIndex = 10;
@@ -218,11 +219,22 @@ namespace newAppforTimer
             this.btnFormItem.UseVisualStyleBackColor = true;
             this.btnFormItem.Click += new System.EventHandler(this.btnFormItem_Click);
             // 
+            // btnBiller
+            // 
+            this.btnBiller.Location = new System.Drawing.Point(667, 114);
+            this.btnBiller.Name = "btnBiller";
+            this.btnBiller.Size = new System.Drawing.Size(75, 23);
+            this.btnBiller.TabIndex = 11;
+            this.btnBiller.Text = "Biller";
+            this.btnBiller.UseVisualStyleBackColor = true;
+            this.btnBiller.Click += new System.EventHandler(this.btnBiller_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBiller);
             this.Controls.Add(this.btnFormItem);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCustCount);
@@ -264,6 +276,7 @@ namespace newAppforTimer
         private System.Windows.Forms.DataGridViewButtonColumn gColStopTimer;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Button btnFormItem;
+        private System.Windows.Forms.Button btnBiller;
     }
 }
 

@@ -309,6 +309,13 @@ namespace newAppforTimer
 
         }
 
+        private void btnBiller_Click(object sender, EventArgs e)
+        {
+            Biller ifrm = new Biller();
+            ifrm.Show();
+            this.Hide();
+        }
+
         private Double calcTotalCost(int hr, int min, int ss)
         {
             Double hourlyCost = 0.0;
